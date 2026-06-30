@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampRent - Sewa Alat Kemping</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>CampRent 🏕️</h1>
+        <p>Sewa Alat Kemping Praktis & Cepat</p>
+    </header>
+
+    <main id="main-page" class="container">
+        <h2>Katalog Alat Kemping</h2>
+        <div id="katalog-container" class="grid-katalog">
+            </div>
+    </main>
+
+    <div id="detail-modal" class="modal tersembunyi">
+        <div class="modal-konten">
+            <span class="tombol-tutup" onclick="tutupDetail()">&times;</span>
+            
+            <img id="detail-gambar" src="" alt="Gambar Alat">
+            <h2 id="detail-nama">Nama Alat</h2>
+            <p id="detail-harga" class="harga"></p>
+            <p id="detail-deskripsi"></p>
+            
+            <div class="aksi-modal">
+                <a id="tombol-hubungi" href="#" target="_blank" class="btn-sewa">Hubungi via WhatsApp</a>
+                <button type="button" class="btn-kembali" onclick="tutupDetail()">Kembali ke Katalog</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 CampRent. Dibuat oleh CampRent dengan ❤️</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
