@@ -1,3 +1,6 @@
+/* ==========================================================================
+   1. RESET & BASE STYLING
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -9,10 +12,12 @@
 body {
     background-color: #121814;
     color: #e2e8f0;
-    padding-top: 70px;
+    padding-top: 70px; /* Jarak agar konten tidak tertutup navbar atas */
 }
 
-/* NAVBAR STYLING */
+/* ==========================================================================
+   2. NAVBAR STYLING (NAVIGASI ATAS)
+   ========================================================================== */
 .navbar {
     background-color: #1a231d;
     border-bottom: 1px solid #2d3d33;
@@ -55,7 +60,7 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* MENU UTAMA DESKTOP */
+/* MENU NAVIGASI UTAMA (DESKTOP) */
 .nav-menu {
     display: flex;
     list-style: none;
@@ -72,17 +77,17 @@ body {
     border-radius: 4px;
 }
 
-/* WARNA KETIKA LINK DIPILIH / AKTIF */
+/* Indikator Menu Aktif / Terpilih */
 .nav-link.aktif {
-    color: #4caf50 !important; /* Warna Hijau Terang */
-    background-color: rgba(76, 175, 80, 0.1); /* Background tipis estetik */
+    color: #4caf50 !important;
+    background-color: rgba(76, 175, 80, 0.1);
 }
 
 .nav-link:hover {
     color: #ffffff;
 }
 
-/* TOMBOL HAMBURGER (Sembunyi secara default di Laptop) */
+/* TOMBOL HAMBURGER (Sembunyi default di Laptop) */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -98,7 +103,9 @@ body {
     transition: all 0.3s ease;
 }
 
-/* HERO SECTION WITH LOGO BULAT */
+/* ==========================================================================
+   3. HERO SECTION (HALAMAN BERANDA)
+   ========================================================================== */
 .hero-section {
     background-image: linear-gradient(rgba(18, 24, 20, 0.6), #121814), url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1200');
     background-size: cover;
@@ -176,26 +183,9 @@ body {
     background-color: rgba(76, 175, 80, 0.1);
 }
 
-/* NAVIGATION BACK BUTTON */
-.btn-back-nav {
-    display: none;
-    background-color: #1e2922;
-    border: 1px solid #2d3d33;
-    color: #cbd5e1;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    transition: all 0.2s;
-}
-
-.btn-back-nav:hover {
-    color: #ffffff;
-    border-color: #4caf50;
-}
-
-/* KATALOG GRID */
+/* ==========================================================================
+   4. UTILITY & NAVIGATION BUTTONS
+   ========================================================================== */
 .container {
     max-width: 1200px;
     margin: 2rem auto;
@@ -220,6 +210,28 @@ body {
     border-radius: 2px;
 }
 
+/* TOMBOL KEMBALI DI KATALOG/ABOUT (Sembunyi di Laptop) */
+.btn-back-nav {
+    display: none;
+    background-color: #1e2922;
+    border: 1px solid #2d3d33;
+    color: #cbd5e1;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    transition: all 0.2s;
+}
+
+.btn-back-nav:hover {
+    color: #ffffff;
+    border-color: #4caf50;
+}
+
+/* ==========================================================================
+   5. KATALOG GRID CARD STYLING
+   ========================================================================== */
 .grid-katalog {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -261,7 +273,9 @@ body {
     font-weight: 700;
 }
 
-/* ABOUT SECTION CARD DENGAN LOGO BULAT */
+/* ==========================================================================
+   6. ABOUT SECTION CARD (HALAMAN TENTANG KAMI)
+   ========================================================================== */
 .about-card {
     background-color: #1e2922;
     border: 1px solid #2d3d33;
@@ -270,7 +284,7 @@ body {
     display: flex;
     align-items: center;
     gap: 3rem;
-    max-width: 800px;
+    max-width: 850px;
     margin: 0 auto;
 }
 
@@ -280,25 +294,40 @@ body {
     object-fit: cover;
     border-radius: 50%;
     border: 3px solid #2d3d33;
+    flex-shrink: 0; /* Mencegah gambar menggepeng di layar desktop */
+}
+
+.about-text {
+    flex: 1;
 }
 
 .about-text h3 {
     color: #4caf50;
     font-size: 0.9rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.5rem;
 }
 
-.founder-name {
-    font-size: 2rem;
+/* Wadah List Nama Anggota Tim */
+.team-list {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.team-list .founder-name {
+    font-size: 1.6rem;
     font-weight: 700;
     color: #ffffff;
-    margin: 0.2rem 0;
+    line-height: 1.2;
 }
 
 .founder-status {
     color: #94a3b8;
     font-size: 1rem;
+    font-weight: 500;
 }
 
 .about-line {
@@ -309,12 +338,15 @@ body {
 }
 
 .about-text p {
-    line-height: 1.6;
+    line-height: 1.7;
     color: #cbd5e1;
     margin-bottom: 1rem;
+    font-size: 0.95rem;
 }
 
-/* MODAL / POPUP */
+/* ==========================================================================
+   7. MODAL DETAILED POPUP
+   ========================================================================== */
 .modal {
     position: fixed;
     top: 0;
@@ -427,19 +459,22 @@ footer {
     margin-top: 4rem;
 }
 
-/* RESPONSIVE LAYOUT (UNTUK HP) */
+/* ==========================================================================
+   8. RESPONSIVE BREAKPOINTS (OPTIMASI KHUSUS HP LAYAR KECIL)
+   ========================================================================== */
 @media (max-width: 768px) {
+    /* Munculkan tombol kembali khusus di HP */
     .btn-back-nav {
-        display: inline-block; /* Munculkan kembali tombolnya khusus di layar HP */
+        display: inline-block;
     }
-    /* Munculkan tombol garis tiga */
+
+    /* Aktifkan struktur menu hamburger */
     .hamburger {
         display: flex;
     }
 
-    /* Modifikasi Nav Menu menjadi Melayang/Dropdown saat di HP */
     .nav-menu {
-        display: none; /* Sembunyi sebelum diklik */
+        display: none;
         flex-direction: column;
         position: absolute;
         top: 70px;
@@ -453,12 +488,11 @@ footer {
         box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
-    /* Kelas bantuan saat hamburger diklik menu muncul */
     .nav-menu.aktif-menu {
         display: flex;
     }
 
-    /* Efek Animasi Silang Tombol Hamburger saat Menu Aktif */
+    /* Animasi Silang Hamburger */
     .hamburger.aktif-toggle span:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
     }
@@ -471,7 +505,31 @@ footer {
 
     .hero-content h1 { font-size: 2rem; }
     .hero-buttons { flex-direction: column; gap: 0.5rem; }
-    .about-card { flex-direction: column; padding: 1.5rem; text-align: center; }
+
+    /* PENATAAN ULANG HALAMAN ABOUT TIM DI HP (SANGAT RAPI) */
+    .about-card {
+        flex-direction: column; /* Menyusun elemen ke bawah secara vertikal */
+        padding: 2.5rem 1.25rem;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .about-img {
+        height: 120px; /* Ukuran bulat gambar sedikit ciut agar ramah layar HP */
+        width: 120px;
+    }
+
+    .team-list .founder-name {
+        font-size: 1.25rem; /* Ukuran huruf nama mengecil rapi agar tidak patah baris */
+        margin-bottom: 0.2rem;
+    }
+
+    .about-text p {
+        text-align: justify; /* Teks paragraf dibuat rata kanan-kiri yang presisi */
+        font-size: 0.9rem;
+    }
+
+    /* MODAL RESPONSIVE DI HP */
     .modal-grid { grid-template-columns: 1fr; }
     .modal-kiri img { min-height: 200px; height: 200px; }
     .modal-kanan { padding: 1.5rem; }
