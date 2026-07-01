@@ -9,7 +9,7 @@
 body {
     background-color: #121814;
     color: #e2e8f0;
-    padding-top: 70px; /* Jarak agar konten tidak tertutup navbar */
+    padding-top: 70px;
 }
 
 /* NAVBAR STYLING */
@@ -55,25 +55,50 @@ body {
     letter-spacing: 0.5px;
 }
 
+/* MENU UTAMA DESKTOP */
 .nav-menu {
     display: flex;
     list-style: none;
     gap: 1.5rem;
 }
 
-.nav-menu a {
+.nav-link {
     color: #cbd5e1;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.95rem;
-    transition: color 0.2s;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px;
 }
 
-.nav-menu a:hover {
-    color: #4caf50;
+/* WARNA KETIKA LINK DIPILIH / AKTIF */
+.nav-link.aktif {
+    color: #4caf50 !important; /* Warna Hijau Terang */
+    background-color: rgba(76, 175, 80, 0.1); /* Background tipis estetik */
 }
 
-/* HERO SECTION WITH LOGO */
+.nav-link:hover {
+    color: #ffffff;
+}
+
+/* TOMBOL HAMBURGER (Sembunyi secara default di Laptop) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    background-color: #ffffff;
+    height: 3px;
+    width: 25px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* HERO SECTION WITH LOGO BULAT */
 .hero-section {
     background-image: linear-gradient(rgba(18, 24, 20, 0.6), #121814), url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1200');
     background-size: cover;
@@ -88,10 +113,10 @@ body {
     height: 140px;
     width: 140px;
     object-fit: cover;
-    border-radius: 50%; /* Membuat gambar menjadi bulat sempurna */
-    border: 3px solid #2d3d33; /* Menambahkan lis bingkai tipis bernuansa hijau hutan */
+    border-radius: 50%;
+    border: 3px solid #2d3d33;
     margin-bottom: 1.5rem;
-    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6)); /* Efek bayangan biar makin kece */
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
 }
 
 .hero-content {
@@ -235,7 +260,7 @@ body {
     font-weight: 700;
 }
 
-/* ABOUT SECTION CARD */
+/* ABOUT SECTION CARD DENGAN LOGO BULAT */
 .about-card {
     background-color: #1e2922;
     border: 1px solid #2d3d33;
@@ -250,7 +275,10 @@ body {
 
 .about-img {
     height: 160px;
-    width: auto;
+    width: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #2d3d33;
 }
 
 .about-text h3 {
@@ -398,10 +426,45 @@ footer {
     margin-top: 4rem;
 }
 
-/* RESPONSIVE LAYOUT (HP) */
+/* RESPONSIVE LAYOUT (UNTUK HP) */
 @media (max-width: 768px) {
-    .nav-menu { gap: 0.8rem; }
-    .nav-menu a { font-size: 0.85rem; }
+    /* Munculkan tombol garis tiga */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Modifikasi Nav Menu menjadi Melayang/Dropdown saat di HP */
+    .nav-menu {
+        display: none; /* Sembunyi sebelum diklik */
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #1a231d;
+        border-bottom: 1px solid #2d3d33;
+        padding: 1.5rem;
+        gap: 1rem;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    /* Kelas bantuan saat hamburger diklik menu muncul */
+    .nav-menu.aktif-menu {
+        display: flex;
+    }
+
+    /* Efek Animasi Silang Tombol Hamburger saat Menu Aktif */
+    .hamburger.aktif-toggle span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.aktif-toggle span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.aktif-toggle span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
     .hero-content h1 { font-size: 2rem; }
     .hero-buttons { flex-direction: column; gap: 0.5rem; }
     .about-card { flex-direction: column; padding: 1.5rem; text-align: center; }

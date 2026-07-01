@@ -30,30 +30,51 @@ const dataAlat = [
     }
 ];
 
-// Nomor WhatsApp Terpilih (Milik Deni)
 const nomorWhatsApp = "6285642353684"; 
 
-// 2. Fungsi Logika Sistem Navigasi Multi-Halaman
+// 2. Fungsi Tombol Hamburger (Buka Tutup Menu di HP)
+function toggleMenu() {
+    const navLinks = document.getElementById('nav-links');
+    const hamburger = document.getElementById('hamburger-menu');
+    
+    navLinks.classList.toggle('aktif-menu');
+    hamburger.classList.toggle('aktif-toggle'); // Membuat animasi garis menjadi silang (X)
+}
+
+// 3. Fungsi Sistem Navigasi & Pewarnaan Link Aktif
 function pindahHalaman(namaHalaman) {
-    // Sembunyikan semua halaman terlebih dahulu
+    // A. Sembunyikan semua halaman virtual
     document.getElementById('page-home').classList.add('tersembunyi');
     document.getElementById('page-katalog').classList.add('tersembunyi');
     document.getElementById('page-about').classList.add('tersembunyi');
 
-    // Tampilkan halaman spesifik yang dipilih tombol
+    // B. Hapus kelas warna 'aktif' dari semua link navbar
+    document.getElementById('link-home').classList.remove('aktif');
+    document.getElementById('link-katalog').classList.remove('aktif');
+    document.getElementById('link-about').classList.remove('aktif');
+
+    // C. Tampilkan halaman terpilih & berikan warna hijau aktif pada menunya
     if (namaHalaman === 'home') {
         document.getElementById('page-home').classList.remove('tersembunyi');
+        document.getElementById('link-home').classList.add('aktif');
     } else if (namaHalaman === 'katalog') {
         document.getElementById('page-katalog').classList.remove('tersembunyi');
+        document.getElementById('link-katalog').classList.add('aktif');
     } else if (namaHalaman === 'about') {
         document.getElementById('page-about').classList.remove('tersembunyi');
+        document.getElementById('link-about').classList.add('aktif');
     }
     
-    // Scroll otomatis ke atas setiap kali pindah halaman
+    // D. Di layar HP, setelah menu diklik, otomatis tutup kembali dropdown menunya
+    const navLinks = document.getElementById('nav-links');
+    const hamburger = document.getElementById('hamburger-menu');
+    navLinks.classList.remove('aktif-menu');
+    hamburger.classList.remove('aktif-toggle');
+
     window.scrollTo(0, 0);
 }
 
-// 3. Menampilkan Daftar Alat ke Halaman Katalog
+// 4. Menampilkan Daftar Alat ke Halaman Katalog
 const container = document.getElementById('katalog-container');
 dataAlat.forEach(alat => {
     const kartu = document.createElement('div');
@@ -70,7 +91,7 @@ dataAlat.forEach(alat => {
     container.appendChild(kartu);
 });
 
-// 4. Fungsi Membuka Detail Alat (Popup Modal)
+// 5. Fungsi Membuka Detail Alat (Popup Modal)
 function bukaDetail(id) {
     const alat = dataAlat.find(item => item.id === id);
     if (alat) {
@@ -86,7 +107,7 @@ function bukaDetail(id) {
     }
 }
 
-// 5. Fungsi Menutup Detail Alat
+// 6. Fungsi Menutup Detail Alat
 function tutupDetail() {
     document.getElementById('detail-modal').classList.add('tersembunyi');
 }

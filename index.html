@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampRent - Penyewaan Alat Kemping</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <title>CampRent - Premium Outdoor Gear</title>
+    <link rel="stylesheet" href="style.css?v=1.2"> </head>
 <body>
 
     <nav class="navbar">
@@ -14,10 +13,17 @@
                 <img src="logo.png" alt="CampRent Logo">
                 <span>CampRent</span>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#" onclick="pindahHalaman('home')">Beranda</a></li>
-                <li><a href="#" onclick="pindahHalaman('katalog')">Katalog Alat</a></li>
-                <li><a href="#" onclick="pindahHalaman('about')">Tentang Kami</a></li>
+            
+            <div class="hamburger" id="hamburger-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul class="nav-menu" id="nav-links">
+                <li><a href="#" id="link-home" class="nav-link aktif" onclick="pindahHalaman('home')">Beranda</a></li>
+                <li><a href="#" id="link-katalog" class="nav-link" onclick="pindahHalaman('katalog')">Katalog Alat</a></li>
+                <li><a href="#" id="link-about" class="nav-link" onclick="pindahHalaman('about')">Tentang Kami</a></li>
             </ul>
         </div>
     </nav>
