@@ -1,4 +1,4 @@
-// 1. Data Alat Kemping (Pengganti Database)
+// 1. Data Alat Kemping (Tetap Sama)
 const dataAlat = [
     {
         id: 1,
@@ -30,12 +30,31 @@ const dataAlat = [
     }
 ];
 
-// 2. Nomor WhatsApp Pemilik (Sudah menggunakan nomor kamu dengan kode 62)
+// Nomor WhatsApp Terpilih (Milik Deni)
 const nomorWhatsApp = "6285642353684"; 
 
-// 3. Menampilkan Daftar Alat ke Halaman Utama secara otomatis
-const container = document.getElementById('katalog-container');
+// 2. Fungsi Logika Sistem Navigasi Multi-Halaman
+function pindahHalaman(namaHalaman) {
+    // Sembunyikan semua halaman terlebih dahulu
+    document.getElementById('page-home').classList.add('tersembunyi');
+    document.getElementById('page-katalog').classList.add('tersembunyi');
+    document.getElementById('page-about').classList.add('tersembunyi');
 
+    // Tampilkan halaman spesifik yang dipilih tombol
+    if (namaHalaman === 'home') {
+        document.getElementById('page-home').classList.remove('tersembunyi');
+    } else if (namaHalaman === 'katalog') {
+        document.getElementById('page-katalog').classList.remove('tersembunyi');
+    } else if (namaHalaman === 'about') {
+        document.getElementById('page-about').classList.remove('tersembunyi');
+    }
+    
+    // Scroll otomatis ke atas setiap kali pindah halaman
+    window.scrollTo(0, 0);
+}
+
+// 3. Menampilkan Daftar Alat ke Halaman Katalog
+const container = document.getElementById('katalog-container');
 dataAlat.forEach(alat => {
     const kartu = document.createElement('div');
     kartu.classList.add('kartu-alat');
@@ -51,7 +70,7 @@ dataAlat.forEach(alat => {
     container.appendChild(kartu);
 });
 
-// 4. Fungsi untuk Membuka Detail Alat (Popup Modal)
+// 4. Fungsi Membuka Detail Alat (Popup Modal)
 function bukaDetail(id) {
     const alat = dataAlat.find(item => item.id === id);
     if (alat) {
@@ -60,18 +79,14 @@ function bukaDetail(id) {
         document.getElementById('detail-harga').innerText = alat.harga;
         document.getElementById('detail-deskripsi').innerText = alat.deskripsi;
 
-        // Menggabungkan teks pesan menggunakan operator + agar lebih aman
         const pesanTeks = encodeURIComponent("Halo Admin, saya ingin menyewa alat: *" + alat.nama + "* (" + alat.harga + "). Apakah unit tersedia?");
-        
-        // Menggabungkan link WhatsApp tujuan
         document.getElementById('tombol-hubungi').href = "https://wa.me/" + nomorWhatsApp + "?text=" + pesanTeks;
 
-        // Memunculkan modal popup dengan menghapus kelas 'tersembunyi'
         document.getElementById('detail-modal').classList.remove('tersembunyi');
     }
 }
 
-// 5. Fungsi untuk Menutup Detail Alat
+// 5. Fungsi Menutup Detail Alat
 function tutupDetail() {
     document.getElementById('detail-modal').classList.add('tersembunyi');
 }

@@ -3,40 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampRent - Sewa Alat Kemping</title>
+    <title>CampRent - Penyewaan Alat Kemping</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>CampRent 🏕️</h1>
-        <p>Sewa Alat Kemping Praktis & Cepat</p>
-    </header>
-
-    <main id="main-page" class="container">
-        <h2>Katalog Alat Kemping</h2>
-        <div id="katalog-container" class="grid-katalog">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo" onclick="pindahHalaman('home')">
+                <img src="logo.png" alt="CampRent Logo">
+                <span>CampRent</span>
             </div>
-    </main>
+            <ul class="nav-menu">
+                <li><a href="#" onclick="pindahHalaman('home')">Beranda</a></li>
+                <li><a href="#" onclick="pindahHalaman('katalog')">Katalog Alat</a></li>
+                <li><a href="#" onclick="pindahHalaman('about')">Tentang Kami</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="page-home" class="halaman-virtual">
+        <header class="hero-section">
+            <div class="hero-overlay">
+                <div class="hero-content">
+                    <img src="logo.png" alt="CampRent Big Logo" class="hero-logo">
+                    <h1>Jelajahi Alam Tanpa Batas 🏔️</h1>
+                    <p>CAMP RENT adalah solusi terpercaya untuk kebutuhan petualangan Anda. Kami menyewakan berbagai alat kemping berkualitas tinggi untuk memastikan pengalaman berkemah yang nyaman dan tak terlupakan.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-jelajah" onclick="pindahHalaman('katalog')">Mulai Sewa Alat</button>
+                        <button class="btn-outline" onclick="pindahHalaman('about')">Pelajari Tentang Kami</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </section>
+
+    <section id="page-katalog" class="halaman-virtual tersembunyi">
+        <main class="container">
+            <div class="section-title">
+                <button class="btn-back-nav" onclick="pindahHalaman('home')">⬅ Kembali ke Beranda</button>
+                <h2>Katalog Alat Kemping</h2>
+                <div class="garis-pembatas"></div>
+                <p>Pilih perlengkapan terbaik untuk petualanganmu</p>
+            </div>
+            <div id="katalog-container" class="grid-katalog">
+                </div>
+        </main>
+    </section>
+
+    <section id="page-about" class="halaman-virtual tersembunyi">
+        <main class="container">
+            <div class="section-title">
+                <button class="btn-back-nav" onclick="pindahHalaman('home')">⬅ Kembali ke Beranda</button>
+                <h2>Tentang CampRent</h2>
+                <div class="garis-pembatas"></div>
+            </div>
+            
+            <div class="about-card">
+                <img src="logo.png" alt="CampRent Logo" class="about-img">
+                <div class="about-text">
+                    <h3>Developer & Founder</h3>
+                    <p class="founder-name">Deni Pratama Wijaya</p>
+                    <p class="founder-status">Sistem Informasi - ARS University</p>
+                    <hr class="about-line">
+                    <p>Aplikasi web katalog <strong>CampRent</strong> ini dirancang dan dikembangkan sebagai solusi digital praktis bagi para pencinta alam untuk menyewa alat-alat *outdoor* berkualitas premium tanpa proses yang rumit.</p>
+                    <p>Dibuat menggunakan integrasi teknologi modern HTML5, CSS3, dan Vanila JavaScript untuk memastikan performa yang cepat, responsif saat dibuka di handphone, serta ramah pengguna.</p>
+                </div>
+            </div>
+        </main>
+    </section>
 
     <div id="detail-modal" class="modal tersembunyi">
         <div class="modal-konten">
             <span class="tombol-tutup" onclick="tutupDetail()">&times;</span>
-            
-            <img id="detail-gambar" src="" alt="Gambar Alat">
-            <h2 id="detail-nama">Nama Alat</h2>
-            <p id="detail-harga" class="harga"></p>
-            <p id="detail-deskripsi"></p>
-            
-            <div class="aksi-modal">
-                <a id="tombol-hubungi" href="#" target="_blank" class="btn-sewa">Hubungi via WhatsApp</a>
-                <button type="button" class="btn-kembali" onclick="tutupDetail()">Kembali ke Katalog</button>
+            <div class="modal-grid">
+                <div class="modal-kiri">
+                    <img id="detail-gambar" src="" alt="Gambar Alat">
+                </div>
+                <div class="modal-kanan">
+                    <span class="kategori-tag">Detail Produk</span>
+                    <h2 id="detail-nama">Nama Alat</h2>
+                    <div id="detail-harga" class="harga"></div>
+                    <p id="detail-deskripsi"></p>
+                    <div class="aksi-modal">
+                        <a id="tombol-hubungi" href="#" target="_blank" class="btn-sewa">Hubungi via WhatsApp</a>
+                        <button type="button" class="btn-kembali" onclick="tutupDetail()">Kembali ke Katalog</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 CampRent. Dibuat oleh CampRent dengan ❤️</p>
+        <p>&copy; 2026 CampRent. Jelajahi Dunia, Nikmati Ceritanya.</p>
     </footer>
 
     <script src="script.js"></script>
