@@ -178,6 +178,7 @@ body {
 
 /* NAVIGATION BACK BUTTON */
 .btn-back-nav {
+    display: none;
     background-color: #1e2922;
     border: 1px solid #2d3d33;
     color: #cbd5e1;
@@ -428,6 +429,9 @@ footer {
 
 /* RESPONSIVE LAYOUT (UNTUK HP) */
 @media (max-width: 768px) {
+    .btn-back-nav {
+        display: inline-block; /* Munculkan kembali tombolnya khusus di layar HP */
+    }
     /* Munculkan tombol garis tiga */
     .hamburger {
         display: flex;
